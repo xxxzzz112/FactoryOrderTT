@@ -90,7 +90,7 @@ factory-orders-system/
 
 ### 部署
 - 前端：Vercel
-- 后端：Render
+- 后端：Railway
 - 数据库：MongoDB Atlas
 
 ## 📝 业务流程

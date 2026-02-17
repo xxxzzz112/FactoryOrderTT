@@ -3,7 +3,7 @@
 ## 📋 部署方案：免费云服务
 
 - **前端**：Vercel（免费）
-- **后端**：Render（免费）
+- **后端**：Railway（免费$5额度/月）
 - **数据库**：MongoDB Atlas（免费 512MB）
 
 **完成后效果**：所有人通过网址访问，数据实时共享！
@@ -88,10 +88,10 @@ git push -u origin main
 
 ---
 
-## 第三步：部署后端到 Render
+## 第三步：部署后端到 Railway
 
-### 3.1 注册 Render
-访问：https://render.com
+### 3.1 注册 Railway
+访问：https://railway.app
 使用 GitHub 账号登录（最方便）
 
 ### 3.2 创建新的 Web Service
@@ -124,7 +124,7 @@ git push -u origin main
 - 大约需要 3-5 分钟
 - 部署完成后，会显示您的后端地址，类似：
   ```
-  https://factory-orders-backend.onrender.com
+  https://factoryordertt-production.up.railway.app
   ```
 - **保存这个地址！**
 
@@ -152,7 +152,7 @@ git push -u origin main
 
 | Name | Value |
 |------|-------|
-| `VITE_API_URL` | 您的 Render 后端地址（如：https://factory-orders-backend.onrender.com） |
+| `VITE_API_URL` | 您的 Railway 后端地址（如：https://factoryordertt-production.up.railway.app） |
 
 ### 4.5 部署
 点击 **"Deploy"**
@@ -166,7 +166,7 @@ https://factory-orders-system.vercel.app
 
 ## 第五步：配置前端API地址
 
-需要修改前端代码，让它连接到 Render 后端。
+需要修改前端代码，让它连接到 Railway 后端。
 
 ### 5.1 修改 frontend/src/api.js
 
@@ -206,7 +206,7 @@ Vercel 会自动重新部署（约 1 分钟）
 
 ### 您的系统地址：
 - **前端（给同事的访问地址）**：https://您的项目名.vercel.app
-- **后端 API**：https://factory-orders-backend.onrender.com
+- **后端 API**：https://factoryordertt-production.up.railway.app
 
 ### 📱 分享给同事
 直接把前端地址发给同事，所有人都能访问，数据实时同步！
@@ -216,7 +216,7 @@ Vercel 会自动重新部署（约 1 分钟）
 ## ⚠️ 注意事项
 
 ### 免费版限制
-- **Render 后端**：15 分钟无访问会自动休眠，首次访问需等待 30 秒唤醒
+- **Railway 后端**：免费套餐每月$5额度，休眠策略由用户配置
 - **MongoDB Atlas**：512MB 存储空间（够用很久）
 - **Vercel 前端**：无限制，速度很快
 
@@ -232,7 +232,7 @@ Vercel 会自动重新部署（约 1 分钟）
 ### Q1: 部署后前端无法连接后端
 **A:** 检查：
 1. Vercel 的环境变量 `VITE_API_URL` 是否正确
-2. Render 后端是否成功启动（查看 Logs）
+2. Railway 后端是否成功启动（查看 Logs）
 3. MongoDB 连接字符串是否正确
 
 ### Q2: 数据库连接失败
@@ -248,7 +248,7 @@ git add .
 git commit -m "Update: 描述您的更改"
 git push
 ```
-Vercel 和 Render 会自动重新部署！
+Vercel 和 Railway 会自动重新部署！
 
 ---
 

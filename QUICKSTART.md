@@ -6,7 +6,7 @@
 
 - [ ] 注册 GitHub 账号：https://github.com
 - [ ] 注册 MongoDB Atlas：https://www.mongodb.com/cloud/atlas/register  
-- [ ] 注册 Render：https://render.com
+- [ ] 注册 Railway：https://railway.app
 - [ ] 注册 Vercel：https://vercel.com
 
 💡 **小技巧**：所有平台都支持用 GitHub 账号登录，一键注册！
@@ -45,9 +45,9 @@ git push -u origin main
 
 ---
 
-## 🖥️ 第三步：部署后端到 Render（10分钟）
+## 🖥️ 第三步：部署后端到 Railway（10分钟）
 
-1. 登录 Render → New + → Web Service
+1. 登录 Railway → New Project → Deploy from GitHub repo
 2. 连接 GitHub 仓库
 3. 配置：
    - Name: `factory-orders-backend`
@@ -61,7 +61,7 @@ git push -u origin main
 5. 选择 **Free** 计划
 6. 点击 **Create Web Service**
 7. ⚠️ **等待部署完成，保存后端地址！**
-   - 格式：https://factory-orders-backend.onrender.com
+   - 格式：https://factoryordertt-production.up.railway.app
 
 ---
 
@@ -73,7 +73,7 @@ git push -u origin main
    - Framework: `Vite`
    - Root Directory: `frontend`
 4. 添加环境变量：
-   - `VITE_API_URL` = 您的 Render 后端地址
+   - `VITE_API_URL` = 您的 Railway 后端地址
 5. 点击 **Deploy**
 6. ⚠️ **等待部署完成，这就是您的访问地址！**
    - 格式：https://factory-orders-system.vercel.app
@@ -104,13 +104,13 @@ https://您的项目名.vercel.app
 ## ⚠️ 常见问题
 
 ### Q: 前端显示"请求失败"
-**A:** 等待30秒，Render 免费版首次启动需要时间。
+**A:** 检查Railway部署日志，确认服务已启动。
 
 ### Q: 数据库连接失败
 **A:** 检查：
 1. MongoDB Atlas 的 IP 白名单是否设置为 0.0.0.0/0
 2. 连接字符串中的密码是否正确
-3. Render 的环境变量 `MONGODB_URI` 是否正确设置
+3. Railway 的环境变量 `MONGODB_URI` 是否正确设置
 
 ### Q: 修改代码后如何更新？
 **A:** 
@@ -119,7 +119,7 @@ git add .
 git commit -m "更新说明"
 git push
 ```
-推送后，Vercel 和 Render 会自动重新部署！
+推送后，Vercel 和 Railway 会自动重新部署！
 
 ---
 
