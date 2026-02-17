@@ -1,0 +1,12 @@
+{
+  "name": "factory-order-system",
+  "version": "1.0.0",
+  "description": "Factory Order Management System",
+  "scripts": {
+    "postinstall": "cd backend && npm install",
+    "start": "cd backend && npm start"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
