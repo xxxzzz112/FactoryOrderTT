@@ -113,5 +113,33 @@ async function exportOverviewPdf(req, res) {
   doc.end();
 }
 
-module.exports = { exportOrdersExcel, exportOverviewPdf };
+// 生成产品导入模板
+async function exportProductsTemplate(req, res) {
+  const rows = [
+    {
+      'SKU': 'DEMO001',
+      '产品名称': '示例产品',
+      '品牌': '示例品牌',
+      '类目': '示例类目',
+      '颜色': '白色',
+      '尺寸': 'M',
+      '单价': 100,
+      '内箱长': 30,
+      '内箱宽': 20,
+      '内箱高': 15,
+      '备注': '这是一个示例数据'
+    }
+  ];
+
+  const wb = XLSX.utils.book_new();
+  const ws = XLSX.utils.json_to_sheet(rows);
+  XLSX.utils.book_append_sheet(wb, ws, '产品列表');
+
+  const buf = XLSX.write(wb, { type: 'buffer', bookType: 'xlsx' });
+  res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+  res.setHeader('Content-Disposition', 'attachment; filename="products-template.xlsx"');
+  res.send(buf);
+}
+
+module.exports = { exportOrdersExcel, exportOverviewPdf, exportProductsTemplate };
 

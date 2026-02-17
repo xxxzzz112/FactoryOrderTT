@@ -14,6 +14,7 @@ const { reportsRouter } = require('./routes/reports');
 const { exportsRouter } = require('./routes/exports');
 const { importRouter } = require('./routes/import');
 const { productsRouter } = require('./routes/products');
+const productFactorySpecsRouter = require('./routes/productFactorySpecs');
 const { factoriesRouter } = require('./routes/factories');
 const { historyRouter } = require('./routes/history');
 const { inventoryRouter } = require('./routes/inventory');
@@ -39,6 +40,7 @@ function createApp() {
   app.use('/api/exports', exportsRouter);
   app.use('/api/import', importRouter);
   app.use('/api/products', productsRouter);
+  app.use('/api/product-factory-specs', productFactorySpecsRouter);
   app.use('/api/factories', factoriesRouter);
   app.use('/api/history', historyRouter);
   app.use('/api/inventory', inventoryRouter);

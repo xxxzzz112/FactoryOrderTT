@@ -2,7 +2,7 @@ const express = require('express');
 const { z } = require('zod');
 const { validate } = require('../middleware/validate');
 const { asyncHandler } = require('../middleware/asyncHandler');
-const { exportOrdersExcel, exportOverviewPdf } = require('../controllers/exportsController');
+const { exportOrdersExcel, exportOverviewPdf, exportProductsTemplate } = require('../controllers/exportsController');
 
 const exportsRouter = express.Router();
 
@@ -20,6 +20,9 @@ exportsRouter.get('/orders.xlsx', validate({ query: ExportQueryZ }), asyncHandle
 
 // 导出整体概览 PDF
 exportsRouter.get('/overview.pdf', validate({ query: ExportQueryZ }), asyncHandler(exportOverviewPdf));
+
+// 下载产品导入模板
+exportsRouter.get('/products-template', asyncHandler(exportProductsTemplate));
 
 module.exports = { exportsRouter };
 
