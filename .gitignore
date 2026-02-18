@@ -31,3 +31,9 @@ yarn-error.log*
 
 # Other
 .cache/
+
+# Private data files - DO NOT COMMIT
+完整聊天记录.txt
+产品信息源文件.xlsx
+转换后的产品导入文件*.xlsx
+*.xlsx

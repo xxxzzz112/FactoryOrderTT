@@ -14,7 +14,7 @@ exports.getProductFactorySpecs = asyncHandler(async (req, res) => {
 
 // 创建或更新工厂规格
 exports.upsertProductFactorySpec = asyncHandler(async (req, res) => {
-  const { sku, factoryName, outerBoxLength, outerBoxWidth, outerBoxHeight, pcsPerCarton, notes } = req.body;
+  const { sku, factoryName, unitPrice, outerBoxLength, outerBoxWidth, outerBoxHeight, pcsPerCarton, notes } = req.body;
 
   if (!sku || !factoryName) {
     return res.status(400).json({ error: { message: 'SKU和工厂名称必填' } });
@@ -23,6 +23,7 @@ exports.upsertProductFactorySpec = asyncHandler(async (req, res) => {
   const spec = await ProductFactorySpec.findOneAndUpdate(
     { sku, factoryName },
     {
+      unitPrice: unitPrice || 0,
       outerBoxLength: outerBoxLength || 0,
       outerBoxWidth: outerBoxWidth || 0,
       outerBoxHeight: outerBoxHeight || 0,

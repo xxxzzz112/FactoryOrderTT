@@ -6,6 +6,9 @@ const ProductFactorySpecSchema = new mongoose.Schema(
     sku: { type: String, required: true, trim: true, index: true },
     factoryName: { type: String, required: true, trim: true, index: true },
     
+    // 该工厂的采购单价
+    unitPrice: { type: Number, min: 0, default: 0 },
+    
     // 外箱尺寸（单位：cm）
     outerBoxLength: { type: Number, min: 0, default: 0 },
     outerBoxWidth: { type: Number, min: 0, default: 0 },
