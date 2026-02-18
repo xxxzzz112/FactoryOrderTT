@@ -34,6 +34,7 @@ yarn-error.log*
 
 # Private data files - DO NOT COMMIT
 完整聊天记录.txt
+如何上传到GitHub.md
 产品信息源文件.xlsx
 转换后的产品导入文件*.xlsx
 *.xlsx
