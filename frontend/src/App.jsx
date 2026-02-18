@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { LoginPage } from './pages/LoginPage';
 import { OrdersPage } from './pages/OrdersPage';
 import { ProductsPage } from './pages/ProductsPage';
 import { FactoriesPage } from './pages/FactoriesPage';
@@ -19,11 +20,49 @@ const TABS = [
 
 export function App() {
   const [tab, setTab] = useState('orders');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const auth = sessionStorage.getItem('authenticated');
+    setIsAuthenticated(auth === 'true');
+  }, []);
+
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem('authenticated');
+    setIsAuthenticated(false);
+    setTab('orders');
+  };
+
+  if (!isAuthenticated) {
+    return <LoginPage onLogin={handleLogin} />;
+  }
 
   return (
     <div className="page">
       <header className="header">
         <h1>工厂订单管理系统</h1>
+        <button
+          onClick={handleLogout}
+          style={{
+            position: 'absolute',
+            right: '20px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            padding: '8px 16px',
+            background: '#f44336',
+            color: 'white',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer',
+            fontSize: '14px'
+          }}
+        >
+          退出登录
+        </button>
       </header>
       <nav className="tab-bar">
         {TABS.map((t) => (
